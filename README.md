@@ -4,61 +4,68 @@
 🧠 Professional Python File Structure for Agentic AI using UV package manager
 
 ```
-agentic_app/
-├── .venv                               # virtual environment
-├── config/
+
+ai-llm-file-structure/
+├── .venv                               # local Python virtual environment for dependency isolation
+├── config/                             # configuration files (e.g. settings.yaml) for runtime parameters
 │   └── settings.yaml
-├── data/
+├── data/                               # raw and processed datasets used in analysis or model training
 │   ├── raw/
 │   └── processed/
-├── docs/
+├── docs/                               # documentation, such as system architecture or design notes
 │   └── architecture.md
-├── notebooks/
-│   └── exploratory_analysis.ipynb      # jupyter notebook
-├── src/
+├── notebooks/                          # Jupyter notebooks for exploratory data analysis or prototyping
+│   └── exploratory_analysis.ipynb
+├── src/                                # core application logic, agents, memory, prompts, tools, workflows
 │   ├── agents/
 │   │   ├── __init__.py                 # package initializer
-│   │   ├── base_agent.py
-│   │   ├── reasoning_agent.py
-│   │   └── multi_agent_controller.py
+│   │   ├── base_agent.py               # abstract base class defining shared agent functionality
+│   │   ├── reasoning_agent.py          # implements logic for reasoning or decision-making
+│   │   └── multi_agent_controller.py   # coordinates multiple agents working together
+│   ├── flask/                          # lightweight web framework written in Python
+│   │   ├── static/
+│   │   │   ├── favicon.ico             # website icon
+│   │   │   └── styles.css              # CSS file
+│   │   ├── templates/
+│   │   │   └── index.html              # HTML template
+│   │   └── routes.py                   # route definitions for serving pages and handling requests
 │   ├── memory/
 │   │   ├── __init__.py                 # package initializer
-│   │   ├── vector_store.py
-│   │   └── context_manager.py
+│   │   ├── vector_store.py             # stores embeddings or semantic vectors
+│   │   └── context_manager.py          # tracks and retrieves conversational or task context
 │   ├── prompts/
 │   │   ├── __init__.py                 # package initializer
 │   │   ├── templates/
-│   │   │   └── invoice_prompt.txt
-│   │   └── prompt_builder.py
-│   ├── static/                         # flask static content
-│   ├── templates/                      # flask HTML markup templates
+│   │   │   └── invoice_prompt.txt      # example prompt for generating invoices
+│   │   └── prompt_builder.py           # dynamically constructs prompts from templates and context
 │   ├── tools/
 │   │   ├── __init__.py                 # package initializer
-│   │   ├── web_search.py
-│   │   └── calculator.py
+│   │   ├── web_search.py               # enables agents to search the web
+│   │   └── calculator.py               # provides basic computational capabilities
 │   ├── utils/
 │   │   ├── __init__.py                 # package initializer
-│   │   ├── logger.py
-│   │   └── helpers.py
+│   │   ├── logger.py                   # logging setup and helpers
+│   │   └── helpers.py                  # miscellaneous helper functions
 │   ├── workflows/
 │   │   ├── __init__.py                 # package initializer
-│   │   ├── rag_pipeline.py
-│   │   └── agent_orchestration.py
-│   ├── __init__.py
-│   └── main.py                         # main entry point
-├── tests/
+│   │   ├── rag_pipeline.py             # likely implements Retrieval-Augmented Generation
+│   │   └── agent_orchestration.py      # manages agent collaboration across tasks
 │   ├── __init__.py                     # package initializer
-│   ├── test_agents.py
-│   ├── test_memory.py
-│   └── test_workflows.py
-├── .env                                # key vault file with API keys
-├── .gitignore                          # hide file and folders from source control
-├── .python-version
-├── LICENSE                             # license file
-├── pyproject.toml
-├── README.md                           # this file
-├── run.py                              # run file from the root directory i.e. ```uv run run.py```
-└── uv.lock                             # uv lock file
+│   └── main.py                         # main entry point for initializing and running the application logic
+├── tests/                              # unit tests for validating functionality across modules
+│   ├── __init__.py                     # package initializer
+│   ├── test_agents.py                  # tests for agent behavior and coordination
+│   ├── test_memory.py                  # ensures memory modules function correctly
+│   └── test_workflows.py               # validates end-to-end workflows
+├── .env                                # environment variables (e.g. API keys, secrets)
+├── .gitignore                          # specifies files/folders to exclude from version control
+├── .python-version                     # specifies Python version for tools like pyenv
+├── LICENSE                             # legal license for usage and distribution
+├── pyproject.toml                      # project metadata and dependency management (used by tools like uv)
+├── README.md                           # project overview, setup instructions, and usage (this file)
+├── run.py                              # entry point script to launch the application
+└── uv.lock                             # dependency lock file for reproducible builds
+
 ```
 
 🔍 Key Design Principles
@@ -68,3 +75,5 @@ agentic_app/
 - Workflow Orchestration: Pipelines coordinate agent actions, especially in multi-agent systems.
 - Testing: Unit tests ensure reliability and support CI/CD integration.
 - Documentation: Architecture and usage notes live in docs/ for onboarding and collaboration.
+
+Insert picture here !!!!
