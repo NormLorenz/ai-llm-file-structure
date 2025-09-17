@@ -1,21 +1,11 @@
 # ai-llm-file-structure
 
 
-🧠 Professional Python File Structure for Agentic AI
+🧠 Professional Python File Structure for Agentic AI using UV package manager
 
 ```
 agentic_app/
-├── .venv
-├── README.md
-├── requirements.txt
-├── setup.py
-├── .env
-├── .gitignore
-├── uv.lock
-├── pyproject.toml
-├── .python-version
-├── LICENSE
-├── run.py
+├── .venv                               # virtual environment
 ├── config/
 │   └── settings.yaml
 ├── data/
@@ -23,42 +13,52 @@ agentic_app/
 │   └── processed/
 ├── docs/
 │   └── architecture.md
+├── notebooks/
+│   └── exploratory_analysis.ipynb      # jupyter notebook
 ├── src/
-│   ├── __init__.py
-│   ├── main.py
 │   ├── agents/
-│   │   ├── __init__.py
+│   │   ├── __init__.py                 # package initializer
 │   │   ├── base_agent.py
 │   │   ├── reasoning_agent.py
 │   │   └── multi_agent_controller.py
+│   ├── memory/
+│   │   ├── __init__.py                 # package initializer
+│   │   ├── vector_store.py
+│   │   └── context_manager.py
 │   ├── prompts/
-│   │   ├── __init__.py
+│   │   ├── __init__.py                 # package initializer
 │   │   ├── templates/
 │   │   │   └── invoice_prompt.txt
 │   │   └── prompt_builder.py
+│   ├── static/                         # flask static content
+│   ├── templates/                      # flask HTML markup templates
 │   ├── tools/
-│   │   ├── __init__.py
+│   │   ├── __init__.py                 # package initializer
 │   │   ├── web_search.py
 │   │   └── calculator.py
-│   ├── memory/
-│   │   ├── __init__.py
-│   │   ├── vector_store.py
-│   │   └── context_manager.py
+│   ├── utils/
+│   │   ├── __init__.py                 # package initializer
+│   │   ├── logger.py
+│   │   └── helpers.py
 │   ├── workflows/
-│   │   ├── __init__.py
+│   │   ├── __init__.py                 # package initializer
 │   │   ├── rag_pipeline.py
 │   │   └── agent_orchestration.py
-│   └── utils/
-│       ├── __init__.py
-│       ├── logger.py
-│       └── helpers.py
-├── tests/
 │   ├── __init__.py
+│   └── main.py                         # main entry point
+├── tests/
+│   ├── __init__.py                     # package initializer
 │   ├── test_agents.py
 │   ├── test_memory.py
 │   └── test_workflows.py
-└── notebooks/
-    └── exploratory_analysis.ipynb
+├── .env                                # key vault file with API keys
+├── .gitignore                          # hide file and folders from source control
+├── .python-version
+├── LICENSE                             # license file
+├── pyproject.toml
+├── README.md                           # this file
+├── run.py                              # run file from the root directory i.e. ```uv run run.py```
+└── uv.lock                             # uv lock file
 ```
 
 🔍 Key Design Principles
